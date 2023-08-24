@@ -1,0 +1,89 @@
+% required libraries
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{geometry}
+\RequirePackage{graphicx}
+\RequirePackage{array}
+\RequirePackage{fontawesome5}
+\RequirePackage{enumitem}
+\RequirePackage{tikz}
+% general settings as well as formatting rules for different elements
+\geometry{
+    a4paper,
+    left=0.5in,
+    right=0.5in,
+    top=0.5in,
+    bottom=0.5in,
+    headheight=0pt,
+    headsep=0pt,
+    marginparsep=0pt,
+    marginparwidth=0pt,
+    footskip=0pt
+}
+\pagenumbering{gobble}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\extrarowheight}{7pt}
+% cv helper definitions
+% persinfo
+\newcommand{\persinfo}[7]{
+    \includegraphics[width=\textwidth]{cv-image.jpg}
+    \vspace{-1.1em}
+    \section*{#1}
+    \begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+        \hspace{6pt}\faMale & #2 \\
+        \hspace{6pt}\faPhone & #3 \\
+        \hspace{6pt}\faEnvelope & #4 \\
+        \hspace{6pt}\faAddressBook & #5 \\
+        \hspace{6pt}\faCalendarDay & #6 \\
+        \hspace{6pt}\faPassport & #7
+    \end{tabular}
+}
+% skillinfo
+\newenvironment{skillinfo}[1]{
+    \def\witharg{#1}
+    \def\noarg{}
+    \ifx\witharg\noarg
+        \begin{tabular}{p{0.55\textwidth} p{0.45\textwidth}}
+    \else
+        \section*{#1}
+        \begin{tabular}{p{0.55\textwidth} p{0.45\textwidth}}
+    \fi
+}{
+    \end{tabular}
+}
+\newcommand{\skillentry}[2]{\hspace{1pt}#1 &
+    \begin{tikzpicture}[baseline={([yshift=-8pt]current bounding box.north)},x=3mm,y=3mm]
+        \foreach \x [count=\xi] in {0,1.2,2.4,3.6,4.8} {
+            \ifnum\xi<\numexpr #2+1
+            \draw[fill=lightgray] (\x,0) rectangle (\x+1,1);
+            \else
+            \draw (\x,0) rectangle (\x+1,1);
+            \fi
+        }
+    \end{tikzpicture}
+}
+% cvtitle
+\newcommand{\cvtitle}[2]{
+    \title{
+        \vspace{2.3em}
+        \bf{#1} \\
+        \vspace{9pt}
+        \large #2
+        \vspace{-6pt}
+    }
+    \date{}
+}
+% history
+\newenvironment{history}[1]{
+    \def\witharg{#1}
+    \def\noarg{}
+    \ifx\witharg\noarg
+        \begin{tabular}{p{0.25\textwidth} p{0.75\textwidth}}
+    \else
+        \section*{#1}
+        \begin{tabular}{p{0.25\textwidth} p{0.75\textwidth}}
+    \fi
+}{
+    \end{tabular}
+}
+\newcommand{\histentry}[3]{\bf{#1} & \textbf{#2} \newline #3}
