@@ -1,0 +1,55 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage{cv}
+\usepackage{lipsum}
+\usepackage{blindtext}
+
+\cvtitle{JOHN DOE}{Software Engineer}
+\begin{document}
+    \begin{leftpage}
+        \persinfo{Personal Info}{example-image.png}{John Doe}{1234 5678910}{john.doe@mail.com}{Route 66\newline60007 Chicago}{January 1st 1999}{United States of America}
+        \begin{skillinfo}{Professional Skills}
+            \skillentry{Python}{4} \\
+            \skillentry{TypeScript}{3} \\
+            \skillentry{JavaScript}{3} \\
+            \skillentry{Golang}{3} \\
+            \skillentry{Terraform}{3} \\
+            \skillentry{AWS CDK TS}{4} \\
+            \skillentry{Kubernetes}{3} \\
+            \skillentry{Cilium}{2} \\
+            \skillentry{Prometheus}{3} \\
+            \skillentry{Thanos}{2} \\
+            \skillentry{Grafana}{3} \\
+            \skillentry{Rancher}{3} \\
+            \skillentry{AWS Lambda}{3} \\
+            \skillentry{AWS EKS}{3} \\
+            \skillentry{AWS ECR}{3} \\
+            \skillentry{AWS MSK}{2} \\
+            \skillentry{Keylime}{3} \\
+            \skillentry{Kairos}{3} \\
+            \skillentry{Ubuntu}{3}
+        \end{skillinfo}
+    \end{leftpage}
+    \begin{rightpage}
+        \maketitle
+        \hrulefill
+        \vspace{1pt}
+        \begin{history}{Professional Experience}
+            \histentry{2030 - present}{Senior Software Engineer}{\blindtext} \\
+            \histentry{2025 - 2029}{Software Engineer}{\blindtext} \\
+            \histentry{2023 - 2024}{Junior Software Engineer}{\blindtext}
+        \end{history}
+    \end{rightpage}
+    \newpage
+    \begin{leftpage}
+        \begin{skillinfo}{}
+            \skillentry{Git}{4} \\
+            \skillentry{LaTeX}{3}
+        \end{skillinfo}
+    \end{leftpage}
+    \begin{rightpage}
+        \begin{history}{Education}
+            \histentry{2021 - 2023}{Master of Science}{Computer Science.} \\
+            \histentry{2018 - 2021}{Bachelor of Science}{Computer Science.}
+        \end{history}
+    \end{rightpage}
+\end{document}
